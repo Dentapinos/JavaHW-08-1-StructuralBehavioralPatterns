@@ -1,5 +1,5 @@
 package org.example;
 
 public interface Network {
-    void update();
+    void run() throws InterruptedException;
 }

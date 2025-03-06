@@ -4,6 +4,7 @@ package org.example.lights;
 import org.example.LEDPanel;
 import org.example.controllers.ControllerTrafficLight;
 import org.example.enums.ColorsLEDPanel;
+import org.example.enums.TypesTrafficLightBase;
 import org.example.schemes.Scheme;
 import org.example.schemes.T1HorizontalScheme;
 
@@ -26,12 +27,17 @@ public class T1Horizontal extends TrafficLight{
     }
 
     @Override
-    String createName() {
-        return "T1Horizontal";
+    void createName() {
+        name = "T1Horizontal";
     }
 
     @Override
-    Scheme createScheme() {
-        return new T1HorizontalScheme();
+    void createDescription() {
+        description = TypesTrafficLightBase.T1_HORIZONTAL.getDescription();
+    }
+
+    @Override
+    void createScheme() {
+        scheme = new T1HorizontalScheme();
     }
 }

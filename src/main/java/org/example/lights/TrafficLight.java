@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public abstract class TrafficLight {
     String name;
+    String description;
     Scheme scheme;
     ArrayList<LEDPanel> ledPanels;
     ControllerTrafficLight controller;
@@ -16,10 +17,26 @@ public abstract class TrafficLight {
 
     public TrafficLight(ControllerTrafficLight controller) {
         this.controller = controller;
-        name = createName();
-        scheme = createScheme();
+        createName();
+        createScheme();
+        createDescription();
         installPanels();
         logger = new LoggerTrafficLight(this);
+    }
+
+    public void startTrafficLight(){
+        int count = 10;
+        System.out.println("Traffic Light " + name + " - " + description);
+        while (count > 0) {
+            try {
+                controller.run();
+                logger.print();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println();
+            count--;
+        }
     }
 
     abstract void installPanels();
@@ -28,8 +45,9 @@ public abstract class TrafficLight {
         return controller;
     }
 
-    abstract String createName();
-    abstract Scheme createScheme();
+    abstract void createName();
+    abstract void createDescription();
+    abstract void createScheme();
 
     public void addPanel(LEDPanel panel) {
         for (LEDPanel ledPanel : ledPanels) {

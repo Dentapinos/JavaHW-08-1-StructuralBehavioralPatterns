@@ -14,7 +14,7 @@ public class LoggerTrafficLight {
         this.trafficLight = trafficLight;
     }
 
-    void print(){
+    public void print(){
         System.out.print(visualize());
     }
 

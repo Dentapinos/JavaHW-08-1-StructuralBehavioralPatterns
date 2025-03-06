@@ -21,12 +21,11 @@ public abstract class FourSectionalController implements ControllerTrafficLight 
     }
 
     @Override
-    public void update() {
-        if (flag != 1){
+    public void run() {
+        try {
             state.changeState(this);
-            flag = 1;
-        } else {
-            flag = 2;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

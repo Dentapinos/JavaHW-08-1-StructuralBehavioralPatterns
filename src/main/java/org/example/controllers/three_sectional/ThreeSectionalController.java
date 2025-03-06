@@ -19,7 +19,7 @@ public abstract class ThreeSectionalController implements ControllerTrafficLight
     }
 
     @Override
-    public void update() {
+    public void run() throws InterruptedException {
         state.changeState(this);
     }
 

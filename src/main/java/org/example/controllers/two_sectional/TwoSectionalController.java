@@ -18,8 +18,12 @@ public abstract class TwoSectionalController implements ControllerTrafficLight {
     }
 
     @Override
-    public void update() {
-        state.changeState(this);
+    public void run() {
+        try {
+            state.changeState(this);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void setState(TrafficLight2SectionalState state) {

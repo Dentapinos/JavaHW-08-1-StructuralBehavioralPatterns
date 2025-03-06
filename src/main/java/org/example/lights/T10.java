@@ -3,6 +3,7 @@ package org.example.lights;
 import org.example.LEDPanel;
 import org.example.controllers.ControllerTrafficLight;
 import org.example.enums.ColorsLEDPanel;
+import org.example.enums.TypesTrafficLightBase;
 import org.example.schemes.Scheme;
 import org.example.schemes.T10Scheme;
 
@@ -23,12 +24,17 @@ public class T10 extends TrafficLight {
     }
 
     @Override
-    String createName() {
-        return "T10";
+    void createName() {
+        name =  "T10";
     }
 
     @Override
-    Scheme createScheme() {
-        return new T10Scheme();
+    void createDescription() {
+        description = TypesTrafficLightBase.T10.getDescription();
+    }
+
+    @Override
+    void createScheme() {
+        scheme = new T10Scheme();
     }
 }

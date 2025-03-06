@@ -3,6 +3,7 @@ package org.example.lights;
 import org.example.LEDPanel;
 import org.example.controllers.ControllerTrafficLight;
 import org.example.enums.ColorsLEDPanel;
+import org.example.enums.TypesTrafficLightBase;
 import org.example.schemes.Scheme;
 import org.example.schemes.T8VerticalScheme;
 
@@ -24,12 +25,17 @@ public class T8_Vertical extends TrafficLight {
     }
 
     @Override
-    String createName() {
-        return "T8Vertical";
+    void createName() {
+        name = "T8Vertical";
     }
 
     @Override
-    Scheme createScheme() {
-        return new T8VerticalScheme();
+    void createDescription() {
+        description = TypesTrafficLightBase.T8.getDescription();
+    }
+
+    @Override
+    void createScheme() {
+        scheme = new T8VerticalScheme();
     }
 }

@@ -3,14 +3,13 @@ package org.example.lights;
 import org.example.LEDPanel;
 import org.example.controllers.ControllerTrafficLight;
 import org.example.enums.ColorsLEDPanel;
+import org.example.enums.TypesTrafficLightBase;
 import org.example.schemes.Scheme;
 import org.example.schemes.T1VerticalScheme;
 
 import java.util.ArrayList;
 
 public class T1Vertical extends TrafficLight {
-
-
 
     public T1Vertical(ControllerTrafficLight controller) {
         super(controller);
@@ -27,12 +26,17 @@ public class T1Vertical extends TrafficLight {
     }
 
     @Override
-    String createName() {
-        return "T1Vertical";
+    void createName() {
+        name = "T1Vertical";
     }
 
     @Override
-    Scheme createScheme() {
-        return new T1VerticalScheme();
+    void createDescription() {
+        description = TypesTrafficLightBase.T1_VERTICAL.getDescription();
+    }
+
+    @Override
+    void createScheme() {
+        scheme =  new T1VerticalScheme();
     }
 }
